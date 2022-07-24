@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using GraphProcessor;
 using UnityEngine.UIElements;
+using XRNodes;
 
 [CustomEditor(typeof(BaseGraph), true)]
 public class GraphAssetInspector : GraphInspector
@@ -32,5 +33,9 @@ public class GraphAssetInspector : GraphInspector
 		{
 			text = "Open exposed properties graph window"
 		});
+        root.Add(new Button(() => EditorWindow.GetWindow<XRGraphWindow>().InitializeGraph(target as BaseGraph))
+        {
+            text = "Open exposed properties graph window"
+        });
 	}
 }
